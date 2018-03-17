@@ -1,6 +1,13 @@
 package lab7.leonardobanegas;
 
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,6 +29,8 @@ public class SwitchGUI extends javax.swing.JFrame {
         PanelPrincipal1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        btnCargarArchivo = new javax.swing.JButton();
+        btnGuardarArchivo = new javax.swing.JButton();
         PanelGestionar1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -61,6 +70,8 @@ public class SwitchGUI extends javax.swing.JFrame {
         PanelPrincipal2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        btnCargarArchivo1 = new javax.swing.JButton();
+        btnGuardarArchivo1 = new javax.swing.JButton();
         PanelGestionar2 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -132,6 +143,20 @@ public class SwitchGUI extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        btnCargarArchivo.setText("Cargar");
+        btnCargarArchivo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCargarArchivoMouseClicked(evt);
+            }
+        });
+
+        btnGuardarArchivo.setText("Guardar");
+        btnGuardarArchivo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGuardarArchivoMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelPrincipal1Layout = new javax.swing.GroupLayout(PanelPrincipal1);
         PanelPrincipal1.setLayout(PanelPrincipal1Layout);
         PanelPrincipal1Layout.setHorizontalGroup(
@@ -140,13 +165,23 @@ public class SwitchGUI extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 673, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(46, Short.MAX_VALUE))
+            .addGroup(PanelPrincipal1Layout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addComponent(btnCargarArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGuardarArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(118, 118, 118))
         );
         PanelPrincipal1Layout.setVerticalGroup(
             PanelPrincipal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPrincipal1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(307, Short.MAX_VALUE))
+                .addGap(113, 113, 113)
+                .addGroup(PanelPrincipal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCargarArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGuardarArchivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Principal", PanelPrincipal1);
@@ -413,6 +448,20 @@ public class SwitchGUI extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable2);
 
+        btnCargarArchivo1.setText("Cargar");
+        btnCargarArchivo1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCargarArchivo1MouseClicked(evt);
+            }
+        });
+
+        btnGuardarArchivo1.setText("Guardar");
+        btnGuardarArchivo1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGuardarArchivo1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelPrincipal2Layout = new javax.swing.GroupLayout(PanelPrincipal2);
         PanelPrincipal2.setLayout(PanelPrincipal2Layout);
         PanelPrincipal2Layout.setHorizontalGroup(
@@ -421,13 +470,23 @@ public class SwitchGUI extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 673, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(46, Short.MAX_VALUE))
+            .addGroup(PanelPrincipal2Layout.createSequentialGroup()
+                .addGap(107, 107, 107)
+                .addComponent(btnCargarArchivo1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGuardarArchivo1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85))
         );
         PanelPrincipal2Layout.setVerticalGroup(
             PanelPrincipal2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPrincipal2Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(279, Short.MAX_VALUE))
+                .addGap(84, 84, 84)
+                .addGroup(PanelPrincipal2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCargarArchivo1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGuardarArchivo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Principal", PanelPrincipal2);
@@ -904,10 +963,8 @@ public class SwitchGUI extends javax.swing.JFrame {
         String contenido = tfMensajeriaContenido1.getText();
         Mensaje men = new Mensaje(iporigen, ipdestino, titulo, contenido);
         if (wan == true) {
-            System.out.println("gay1");
             for (PC p1 : switches.get(1).getPcs()) {
                 if (p1.getDireccionIP().equalsIgnoreCase(iporigen)) {
-                    System.out.println("gay4");
                     admMen = new adminMensajes(men, tablemensajeria1, tablemensajeria2);
                     admMen.setSwitch1(switches.get(0));
                     admMen.setSwitch2(switches.get(1));
@@ -917,12 +974,21 @@ public class SwitchGUI extends javax.swing.JFrame {
             }
             for (PC p1 : switches.get(1).getPcs()) {
                 if (p1.getDireccionIP().equalsIgnoreCase(ipdestino)) {
-                    System.out.println("gay5");
                     admMen = new adminMensajes(men, tablemensajeria1, tablemensajeria2);
                     admMen.setSwitch1(switches.get(0));
                     admMen.setSwitch2(switches.get(1));
                     admMen.setSwitchoriginal(2);
                     admMen.start();
+                }
+            }
+            for (PC pe : switches.get(0).getPcs()) {
+                if (pe.getDireccionIP().equalsIgnoreCase(ipdestino)) {
+                    pe.getMensajes().add(men);
+                }
+            }
+            for (PC pe : switches.get(1).getPcs()) {
+                if (pe.getDireccionIP().equalsIgnoreCase(ipdestino)) {
+                    pe.getMensajes().add(men);
                 }
             }
         }
@@ -935,10 +1001,8 @@ public class SwitchGUI extends javax.swing.JFrame {
         String contenido = tfMensajeriaContenido.getText();
         Mensaje men = new Mensaje(iporigen, ipdestino, titulo, contenido);
         if (wan == true) {
-            System.out.println("gay1");
             for (PC p1 : switches.get(0).getPcs()) {
                 if (p1.getDireccionIP().equalsIgnoreCase(iporigen)) {
-                    System.out.println("gay4");
                     admMen = new adminMensajes(men, tablemensajeria1, tablemensajeria2);
                     admMen.setSwitch1(switches.get(0));
                     admMen.setSwitch2(switches.get(1));
@@ -948,7 +1012,6 @@ public class SwitchGUI extends javax.swing.JFrame {
             }
             for (PC p1 : switches.get(1).getPcs()) {
                 if (p1.getDireccionIP().equalsIgnoreCase(ipdestino)) {
-                    System.out.println("gay4");
                     admMen = new adminMensajes(men, tablemensajeria1, tablemensajeria2);
                     admMen.setSwitch1(switches.get(0));
                     admMen.setSwitch2(switches.get(1));
@@ -956,8 +1019,34 @@ public class SwitchGUI extends javax.swing.JFrame {
                     admMen.start();
                 }
             }
+            for (PC pe : switches.get(1).getPcs()) {
+                if (pe.getDireccionIP().equalsIgnoreCase(ipdestino)) {
+                    pe.getMensajes().add(men);
+                }
+            }
+            for (PC pe : switches.get(0).getPcs()) {
+                if (pe.getDireccionIP().equalsIgnoreCase(ipdestino)) {
+                    pe.getMensajes().add(men);
+                }
+            }
         }
     }//GEN-LAST:event_btnenviarmensajeMouseClicked
+
+    private void btnGuardarArchivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarArchivoMouseClicked
+        guardarSwitch1();
+    }//GEN-LAST:event_btnGuardarArchivoMouseClicked
+
+    private void btnCargarArchivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCargarArchivoMouseClicked
+        cargarSwitch1();
+    }//GEN-LAST:event_btnCargarArchivoMouseClicked
+
+    private void btnCargarArchivo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCargarArchivo1MouseClicked
+        guardarSwitch1();
+    }//GEN-LAST:event_btnCargarArchivo1MouseClicked
+
+    private void btnGuardarArchivo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarArchivo1MouseClicked
+        cargarSwitch1();
+    }//GEN-LAST:event_btnGuardarArchivo1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1003,11 +1092,15 @@ public class SwitchGUI extends javax.swing.JFrame {
     private javax.swing.JPanel PanelMensajeria2;
     private javax.swing.JPanel PanelPrincipal1;
     private javax.swing.JPanel PanelPrincipal2;
+    private javax.swing.JButton btnCargarArchivo;
+    private javax.swing.JButton btnCargarArchivo1;
     private javax.swing.JButton btnCrearPC1;
     private javax.swing.JButton btnCrearPC2;
     private javax.swing.JButton btnCrearRouter1;
     private javax.swing.JButton btnCrearRouter2;
     private javax.swing.JButton btnCrearSwitch;
+    private javax.swing.JButton btnGuardarArchivo;
+    private javax.swing.JButton btnGuardarArchivo1;
     private javax.swing.JButton btnWan;
     private javax.swing.JButton btnenviarmensaje;
     private javax.swing.JButton btnenviarmensaje2;
@@ -1089,4 +1182,96 @@ public class SwitchGUI extends javax.swing.JFrame {
     private javax.swing.JTextField tfVelRecep;
     private javax.swing.JTextField tfVelTrans;
     // End of variables declaration//GEN-END:variables
+
+    private void guardarSwitch1() {
+        FileOutputStream fw = null;
+        ObjectOutputStream bw = null;
+        try {
+            fw = new FileOutputStream("./Switch1", false);
+            bw = new ObjectOutputStream(fw);
+
+            for (Switch t : switches) {
+                bw.writeObject(t);
+            }
+            bw.flush();
+        } catch (Exception ex) {
+        } finally {
+            try {
+                bw.close();
+                fw.close();
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    private void cargarSwitch1() {
+        try {
+            jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                    new Object[][]{},
+                    new String[]{
+                        "Dispositivo", "IP Address", "Gateaway"
+                    }
+            ) {
+                Class[] types = new Class[]{
+                    java.lang.String.class, java.lang.String.class, java.lang.String.class
+                };
+
+                public Class getColumnClass(int columnIndex) {
+                    return types[columnIndex];
+                }
+            });
+            jTable2.setModel(new javax.swing.table.DefaultTableModel(
+                    new Object[][]{},
+                    new String[]{
+                        "Dispositivo", "IP Address", "Gateaway"
+                    }
+            ) {
+                Class[] types = new Class[]{
+                    java.lang.String.class, java.lang.String.class, java.lang.String.class
+                };
+
+                public Class getColumnClass(int columnIndex) {
+                    return types[columnIndex];
+                }
+            });
+
+            DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+            DefaultTableModel modelo2 = (DefaultTableModel) jTable2.getModel();
+            File archivo = new File("./Switch1");
+            Switch s = null;
+            if (archivo.exists()) {
+                System.out.println("gay");
+                FileInputStream entrada
+                        = new FileInputStream(archivo);
+                ObjectInputStream objeto = new ObjectInputStream(entrada);
+                try {
+                    while ((s = (Switch) objeto.readObject()) != null) {
+                        switches.add(s);
+                    }
+
+                } catch (EOFException e) {
+                    //ENCONTRO EL FINAL DEL ARCHIVO
+                }
+                Object[] newrow = {switches.get(0).getRouter(), switches.get(0).getRouter().getDireccionIP(), ""};
+                Object[] newrow2 = {switches.get(1).getRouter(), switches.get(1).getRouter().getDireccionIP(), ""};
+                modelo.addRow(newrow);
+                modelo2.addRow(newrow2);
+                for (PC e : switches.get(0).getPcs()) {
+                    Object[] newr = {"PC", "IP: " + e.getDireccionIP(), e.getGateaway()};
+                    modelo.addRow(newr);
+                }
+                jTable1.setModel(modelo);
+                for (PC e : switches.get(1).getPcs()) {
+                    Object[] newr = {"PC", "IP: " + e.getDireccionIP(), e.getGateaway()};
+                    modelo2.addRow(newr);
+                }
+                jTable2.setModel(modelo2);
+                objeto.close();
+                entrada.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -238,7 +238,6 @@ public class adminMensajes extends Thread {
             Object[] newrow2 = {mensaje.getTitulo(), "PC con IP: " + IPDestino, switch1.getVelocidadtransmision(), "Entregado"};
             modelo3.addRow(newrow2);
             tabla.setModel(modelo3);
-            pe.getMensajes().add(mensaje);
 
         } else if (ver == 4) {
             System.out.println("gay7");
@@ -264,7 +263,6 @@ public class adminMensajes extends Thread {
             Object[] newrow2 = {mensaje.getTitulo(), "PC con IP: " + IPDestino, switch2.getVelocidadtransmision(), "Entregado"};
             modelo2.addRow(newrow2);
             tabla2.setModel(modelo2);
-            pe.getMensajes().add(mensaje);
 
         }
 
