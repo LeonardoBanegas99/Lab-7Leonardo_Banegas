@@ -1048,9 +1048,7 @@ public class SwitchGUI extends javax.swing.JFrame {
         cargarSwitch1();
     }//GEN-LAST:event_btnGuardarArchivo1MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1183,6 +1181,7 @@ public class SwitchGUI extends javax.swing.JFrame {
     private javax.swing.JTextField tfVelTrans;
     // End of variables declaration//GEN-END:variables
 
+    
     private void guardarSwitch1() {
         FileOutputStream fw = null;
         ObjectOutputStream bw = null;
@@ -1274,4 +1273,5 @@ public class SwitchGUI extends javax.swing.JFrame {
         }
     }
 
+    
 }
