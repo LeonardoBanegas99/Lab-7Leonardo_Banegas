@@ -1,8 +1,9 @@
 package lab7.leonardobanegas;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class PC {
+public class PC implements Serializable{
     private String direccionIP;
     private String mascara;
     private String gateaway;

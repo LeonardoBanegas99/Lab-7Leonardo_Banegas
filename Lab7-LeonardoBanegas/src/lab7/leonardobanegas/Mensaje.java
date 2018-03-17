@@ -1,6 +1,8 @@
 package lab7.leonardobanegas;
 
-public class Mensaje {
+import java.io.Serializable;
+
+public class Mensaje implements Serializable{
 
     private String dirIPorigen;
     private String dirIPdestino;

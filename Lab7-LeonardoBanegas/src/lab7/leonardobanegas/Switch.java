@@ -1,8 +1,9 @@
 package lab7.leonardobanegas;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Switch {
+public class Switch implements Serializable{
     private String nombre;
     private int velocidadtransmision;
     private int velocidadderecepcion;

@@ -6,7 +6,8 @@ import javax.swing.table.DefaultTableModel;
 
 public class SwitchGUI extends javax.swing.JFrame {
 
-    ArrayList<Switch> switches = new ArrayList();
+    private ArrayList<Switch> switches = new ArrayList();
+    private boolean wan = false;
 
     public SwitchGUI() {
         initComponents();
@@ -53,6 +54,8 @@ public class SwitchGUI extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tfMensajeriaContenido = new javax.swing.JTextArea();
         btnenviarmensaje = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tablemensajeria1 = new javax.swing.JTable();
         FrameSwitch2 = new javax.swing.JFrame();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         PanelPrincipal2 = new javax.swing.JPanel();
@@ -78,6 +81,20 @@ public class SwitchGUI extends javax.swing.JFrame {
         btnCrearRouter2 = new javax.swing.JButton();
         btnCrearPC2 = new javax.swing.JButton();
         PanelMensajeria2 = new javax.swing.JPanel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        tfMensajeriaIPOrigen2 = new javax.swing.JTextField();
+        tfMensajeriaIPDestino2 = new javax.swing.JTextField();
+        tfMensajeriaTitulo2 = new javax.swing.JTextField();
+        scrollPane2 = new java.awt.ScrollPane();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tfMensajeriaContenido1 = new javax.swing.JTextArea();
+        btnenviarmensaje2 = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tablemensajeria2 = new javax.swing.JTable();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         tfNombreSwitch = new javax.swing.JTextField();
@@ -270,16 +287,43 @@ public class SwitchGUI extends javax.swing.JFrame {
         scrollPane1.add(jScrollPane3);
 
         btnenviarmensaje.setText("Enviar");
+        btnenviarmensaje.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnenviarmensajeMouseClicked(evt);
+            }
+        });
+
+        tablemensajeria1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Titulo", "Dispositivo", "Tiempo", "Estado"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(tablemensajeria1);
 
         javax.swing.GroupLayout PanelMensajeria1Layout = new javax.swing.GroupLayout(PanelMensajeria1);
         PanelMensajeria1.setLayout(PanelMensajeria1Layout);
         PanelMensajeria1Layout.setHorizontalGroup(
             PanelMensajeria1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMensajeria1Layout.createSequentialGroup()
+                .addGap(117, 117, 117)
+                .addComponent(jLabel24)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMensajeria1Layout.createSequentialGroup()
                 .addGroup(PanelMensajeria1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelMensajeria1Layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(jLabel24))
+                        .addGap(109, 109, 109)
+                        .addComponent(btnenviarmensaje))
                     .addGroup(PanelMensajeria1Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(PanelMensajeria1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,36 +336,41 @@ public class SwitchGUI extends javax.swing.JFrame {
                             .addComponent(tfMensajeriaIPOrigen)
                             .addComponent(tfMensajeriaIPDestino)
                             .addComponent(tfMensajeriaTitulo)
-                            .addComponent(scrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)))
-                    .addGroup(PanelMensajeria1Layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(btnenviarmensaje)))
-                .addContainerGap(472, Short.MAX_VALUE))
+                            .addComponent(scrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         PanelMensajeria1Layout.setVerticalGroup(
             PanelMensajeria1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelMensajeria1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMensajeria1Layout.createSequentialGroup()
                 .addGap(52, 52, 52)
                 .addComponent(jLabel24)
-                .addGap(38, 38, 38)
-                .addGroup(PanelMensajeria1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25)
-                    .addComponent(tfMensajeriaIPOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(PanelMensajeria1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel26)
-                    .addComponent(tfMensajeriaIPDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(PanelMensajeria1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel27)
-                    .addComponent(tfMensajeriaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
                 .addGroup(PanelMensajeria1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel28)
-                    .addComponent(scrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addComponent(btnenviarmensaje)
-                .addGap(96, 96, 96))
+                    .addGroup(PanelMensajeria1Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(PanelMensajeria1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel25)
+                            .addComponent(tfMensajeriaIPOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22)
+                        .addGroup(PanelMensajeria1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel26)
+                            .addComponent(tfMensajeriaIPDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(PanelMensajeria1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel27)
+                            .addComponent(tfMensajeriaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addGroup(PanelMensajeria1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel28)
+                            .addComponent(scrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                        .addComponent(btnenviarmensaje)
+                        .addGap(96, 96, 96))
+                    .addGroup(PanelMensajeria1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         jTabbedPane2.addTab("Mensajeria", PanelMensajeria1);
@@ -502,15 +551,108 @@ public class SwitchGUI extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("Gestionar", PanelGestionar2);
 
+        jLabel29.setText("Mensaje");
+
+        jLabel30.setText("IP Origen");
+
+        jLabel31.setText("IP Destino");
+
+        jLabel32.setText("Titulo");
+
+        jLabel33.setText("Contenido");
+
+        tfMensajeriaContenido1.setColumns(20);
+        tfMensajeriaContenido1.setRows(5);
+        jScrollPane4.setViewportView(tfMensajeriaContenido1);
+
+        scrollPane2.add(jScrollPane4);
+
+        btnenviarmensaje2.setText("Enviar");
+        btnenviarmensaje2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnenviarmensaje2MouseClicked(evt);
+            }
+        });
+
+        tablemensajeria2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Titulo", "Dispositivo", "Tiempo", "Estado"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane6.setViewportView(tablemensajeria2);
+
         javax.swing.GroupLayout PanelMensajeria2Layout = new javax.swing.GroupLayout(PanelMensajeria2);
         PanelMensajeria2.setLayout(PanelMensajeria2Layout);
         PanelMensajeria2Layout.setHorizontalGroup(
             PanelMensajeria2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 765, Short.MAX_VALUE)
+            .addGroup(PanelMensajeria2Layout.createSequentialGroup()
+                .addGroup(PanelMensajeria2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelMensajeria2Layout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addComponent(jLabel29)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(PanelMensajeria2Layout.createSequentialGroup()
+                        .addGroup(PanelMensajeria2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelMensajeria2Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addGroup(PanelMensajeria2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel30)
+                                    .addComponent(jLabel31)
+                                    .addComponent(jLabel32)
+                                    .addComponent(jLabel33))
+                                .addGap(42, 42, 42)
+                                .addGroup(PanelMensajeria2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tfMensajeriaIPOrigen2)
+                                    .addComponent(tfMensajeriaIPDestino2)
+                                    .addComponent(tfMensajeriaTitulo2)
+                                    .addComponent(scrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)))
+                            .addGroup(PanelMensajeria2Layout.createSequentialGroup()
+                                .addGap(109, 109, 109)
+                                .addComponent(btnenviarmensaje2)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         PanelMensajeria2Layout.setVerticalGroup(
             PanelMensajeria2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 534, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMensajeria2Layout.createSequentialGroup()
+                .addGroup(PanelMensajeria2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PanelMensajeria2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelMensajeria2Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jLabel29)
+                        .addGap(38, 38, 38)
+                        .addGroup(PanelMensajeria2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel30)
+                            .addComponent(tfMensajeriaIPOrigen2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22)
+                        .addGroup(PanelMensajeria2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel31)
+                            .addComponent(tfMensajeriaIPDestino2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(PanelMensajeria2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel32)
+                            .addComponent(tfMensajeriaTitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addGroup(PanelMensajeria2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel33)
+                            .addComponent(scrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                        .addComponent(btnenviarmensaje2)))
+                .addGap(96, 96, 96))
         );
 
         jTabbedPane3.addTab("Mensajeria", PanelMensajeria2);
@@ -533,7 +675,6 @@ public class SwitchGUI extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(500, 500));
         setSize(new java.awt.Dimension(500, 500));
 
         jLabel3.setText("Nombre");
@@ -742,16 +883,81 @@ public class SwitchGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearPC2MouseClicked
 
     private void btnWanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnWanMouseClicked
-        if ((tfRouter1WAN.getText() == switches.get(0).getRouter().getDireccionIP())
-                && tfRouter2WAN.getText() == switches.get(1).getRouter().getDireccionIP()) {
+        if (((tfRouter1WAN.getText()).equals(switches.get(0).getRouter().getDireccionIP()))
+                && (tfRouter2WAN.getText()).equals(switches.get(1).getRouter().getDireccionIP())) {
             JOptionPane.showMessageDialog(this, "WAN creada con Exito");
-        } else if ((tfRouter1WAN.getText() == switches.get(1).getRouter().getDireccionIP())
-                && tfRouter2WAN.getText() == switches.get(0).getRouter().getDireccionIP()) {
+            wan = true;
+        } else if (((tfRouter1WAN.getText()).equals(switches.get(1).getRouter().getDireccionIP()))
+                && (tfRouter2WAN.getText()).equals(switches.get(0).getRouter().getDireccionIP())) {
             JOptionPane.showMessageDialog(this, "WAN creada con Exito");
+            wan = true;
         } else {
             JOptionPane.showMessageDialog(this, "IPs No Existen");
+            wan = false;
         }
     }//GEN-LAST:event_btnWanMouseClicked
+
+    private void btnenviarmensaje2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnenviarmensaje2MouseClicked
+        String iporigen = tfMensajeriaIPOrigen2.getText();
+        String ipdestino = tfMensajeriaIPDestino2.getText();
+        String titulo = tfMensajeriaTitulo2.getText();
+        String contenido = tfMensajeriaContenido1.getText();
+        Mensaje men = new Mensaje(iporigen, ipdestino, titulo, contenido);
+        if (wan == true) {
+            System.out.println("gay1");
+            for (PC p1 : switches.get(1).getPcs()) {
+                if (p1.getDireccionIP().equalsIgnoreCase(iporigen)) {
+                    System.out.println("gay4");
+                    admMen = new adminMensajes(men, tablemensajeria1, tablemensajeria2);
+                    admMen.setSwitch1(switches.get(0));
+                    admMen.setSwitch2(switches.get(1));
+                    admMen.setSwitchoriginal(2);
+                    admMen.start();
+                }
+            }
+            for (PC p1 : switches.get(1).getPcs()) {
+                if (p1.getDireccionIP().equalsIgnoreCase(ipdestino)) {
+                    System.out.println("gay5");
+                    admMen = new adminMensajes(men, tablemensajeria1, tablemensajeria2);
+                    admMen.setSwitch1(switches.get(0));
+                    admMen.setSwitch2(switches.get(1));
+                    admMen.setSwitchoriginal(2);
+                    admMen.start();
+                }
+            }
+        }
+    }//GEN-LAST:event_btnenviarmensaje2MouseClicked
+    private adminMensajes admMen = null;
+    private void btnenviarmensajeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnenviarmensajeMouseClicked
+        String iporigen = tfMensajeriaIPOrigen.getText();
+        String ipdestino = tfMensajeriaIPDestino.getText();
+        String titulo = tfMensajeriaTitulo.getText();
+        String contenido = tfMensajeriaContenido.getText();
+        Mensaje men = new Mensaje(iporigen, ipdestino, titulo, contenido);
+        if (wan == true) {
+            System.out.println("gay1");
+            for (PC p1 : switches.get(0).getPcs()) {
+                if (p1.getDireccionIP().equalsIgnoreCase(iporigen)) {
+                    System.out.println("gay4");
+                    admMen = new adminMensajes(men, tablemensajeria1, tablemensajeria2);
+                    admMen.setSwitch1(switches.get(0));
+                    admMen.setSwitch2(switches.get(1));
+                    admMen.setSwitchoriginal(1);
+                    admMen.start();
+                }
+            }
+            for (PC p1 : switches.get(1).getPcs()) {
+                if (p1.getDireccionIP().equalsIgnoreCase(ipdestino)) {
+                    System.out.println("gay4");
+                    admMen = new adminMensajes(men, tablemensajeria1, tablemensajeria2);
+                    admMen.setSwitch1(switches.get(0));
+                    admMen.setSwitch2(switches.get(1));
+                    admMen.setSwitchoriginal(1);
+                    admMen.start();
+                }
+            }
+        }
+    }//GEN-LAST:event_btnenviarmensajeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -804,6 +1010,7 @@ public class SwitchGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnCrearSwitch;
     private javax.swing.JButton btnWan;
     private javax.swing.JButton btnenviarmensaje;
+    private javax.swing.JButton btnenviarmensaje2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -825,7 +1032,12 @@ public class SwitchGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -837,16 +1049,26 @@ public class SwitchGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private java.awt.ScrollPane scrollPane1;
+    private java.awt.ScrollPane scrollPane2;
+    private javax.swing.JTable tablemensajeria1;
+    private javax.swing.JTable tablemensajeria2;
     private javax.swing.JTextArea tfMensajeriaContenido;
+    private javax.swing.JTextArea tfMensajeriaContenido1;
     private javax.swing.JTextField tfMensajeriaIPDestino;
+    private javax.swing.JTextField tfMensajeriaIPDestino2;
     private javax.swing.JTextField tfMensajeriaIPOrigen;
+    private javax.swing.JTextField tfMensajeriaIPOrigen2;
     private javax.swing.JTextField tfMensajeriaTitulo;
+    private javax.swing.JTextField tfMensajeriaTitulo2;
     private javax.swing.JTextField tfNombreSwitch;
     private javax.swing.JTextField tfPCIP;
     private javax.swing.JTextField tfPCIP2;
